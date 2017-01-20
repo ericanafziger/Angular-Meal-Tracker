@@ -35,14 +35,12 @@ export class NewMealComponent {
     this.newMealForm = true;
   }
   saveNewMeal(name: string, description: string, calories: number) {
-    alert('save form');
     var newMealToAdd: Meal = new Meal(name, description, calories);
     this.newMealSender.emit(newMealToAdd);
     this.newMealForm = false;
   }
 
   cancelNewMeal() {
-    alert('cancel form');
     this.newMealForm = false;
   }
 

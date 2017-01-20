@@ -8,11 +8,7 @@ import { Meal } from './meal.model';
     <h1>Meal Tracker App</h1>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
     <h4>Meal List</h4>
-    <div *ngFor="let currentMeal of masterMealList">
-      <p>{{currentMeal.name}}</p>
-      <p>{{currentMeal.details}}</p>
-      <p>{{currentMeal.calories}}</p>
-    </div>
+    <meal-list [childMealList]="masterMealList"></meal-list>
   </div>
   `
 })
