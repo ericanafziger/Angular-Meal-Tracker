@@ -5,18 +5,19 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'edit-meal',
   template: `
-  <div *ngIf="showForm">
-
+  <div class="editForm" *ngIf="showForm">
+    <hr>
     <label>Meal Name</label>
     <input #name [(ngModel)]="childSelectedMeal.name">
     <label>Meal Details</label>
-    <textarea #details [(ngModel)]="childSelectedMeal.details"></textarea>
+    <input #details [(ngModel)]="childSelectedMeal.details">
     <label>Meal Calories</label>
     <input type="number" #calories [(ngModel)]=childSelectedMeal.calories>
-
-    <button (click)="cancelEdit()">Cancel</button>
-    <button (click)="saveEditClicked()">Save</button>
-    <delete-meal [childSelectedMeal]="childSelectedMeal" (deleteMealSender)="deleteMeal($event)"></delete-meal>
+    <div class="buttons">
+      <button (click)="cancelEdit()">Cancel</button>
+      <button (click)="saveEditClicked()">Save</button>
+      <delete-meal [childSelectedMeal]="childSelectedMeal" (deleteMealSender)="deleteMeal($event)"></delete-meal>
+    </div>
   </div>
   <button *ngIf="showForm === false" (click)="showEditMealForm()">Edit</button>
 
