@@ -5,6 +5,7 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
+  <label>Sort by:</label>
   <select (change)="onChange($event.target.value)">
     <option value="allMeals" selected="selected">All Meals</option>
     <option value="highCalories">Meals over 500 Calories</option>

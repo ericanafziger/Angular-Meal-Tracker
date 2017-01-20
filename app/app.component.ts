@@ -5,11 +5,13 @@ import { Meal } from './meal.model';
   selector: 'app-root',
   template: `
   <div class="container">
+    <h5>My Daily Calorie Goal</h5>
+    <h3>{{dailyCalories}}</h3>
     <div class="calorieTracker">
       <div class="calorieMeter" [style.width.%]="(currentCalories/dailyCalories)*100"></div>
-      <h3>Current Calories: {{currentCalories}} out of {{dailyCalories}} calorie diet</h3>
+      <h4>{{dailyCalories-currentCalories}} Remaining Today</h4>
     </div>
-    <h1>Meal Tracker App</h1>
+    <h1>My Meal Tracker</h1>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
     <meal-list (deleteMealSender)="deleteMeal($event)" [childMealList]="masterMealList"></meal-list>
   </div>
@@ -42,7 +44,7 @@ export class AppComponent {
     });
     return calories;
   }
-  dailyCalories: number = 7000;
+  dailyCalories: number = 2000;
   currentCalories: number = this.countCalories();
 
 }
