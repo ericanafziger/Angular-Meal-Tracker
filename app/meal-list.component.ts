@@ -15,6 +15,7 @@ import { Meal } from './meal.model';
     <p>{{currentMeal.name}}</p>
     <p>{{currentMeal.details}}</p>
     <p>{{currentMeal.calories}}</p>
+    <edit-meal [childSelectedMeal]="currentMeal"></edit-meal>
   </div>
   `
 })
