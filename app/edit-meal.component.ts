@@ -8,11 +8,11 @@ import { Meal } from './meal.model';
   <div *ngIf="showForm">
 
     <label>Meal Name</label>
-    <input [(ngModel)]="childSelectedMeal.name">
+    <input #name [(ngModel)]="childSelectedMeal.name">
     <label>Meal Details</label>
-    <textarea [(ngModel)]="childSelectedMeal.details"></textarea>
+    <textarea #details [(ngModel)]="childSelectedMeal.details"></textarea>
     <label>Meal Calories</label>
-    <input [(ngModel)]="childSelectedMeal.calories">
+    <input type="number" #calories [(ngModel)]=childSelectedMeal.calories>
 
     <button (click)="cancelEdit()">Cancel</button>
     <button (click)="saveEditClicked()">Save</button>
@@ -26,6 +26,7 @@ import { Meal } from './meal.model';
 export class EditMealComponent {
   @Input() childSelectedMeal: Meal;
   @Output() deleteMealSender = new EventEmitter();
+  @Output() editMealSender = new EventEmitter();
 
   showForm : boolean = false;
 
@@ -38,7 +39,9 @@ export class EditMealComponent {
   }
 
   saveEditClicked() {
+    this.editMealSender.emit();
     this.showForm = false;
+
   }
 
   deleteMeal($event) {

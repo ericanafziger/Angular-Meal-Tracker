@@ -18,7 +18,7 @@ import { Meal } from './meal.model';
     <p>{{currentMeal.name}}</p>
     <p>{{currentMeal.details}}</p>
     <p>{{currentMeal.calories}}</p>
-    <edit-meal (deleteMealSender)="deleteMeal($event)" [childSelectedMeal]="currentMeal"></edit-meal>
+    <edit-meal (editMealSender)="editMeal($event)" (deleteMealSender)="deleteMeal($event)" [childSelectedMeal]="currentMeal"></edit-meal>
   </div>
   `
 })
@@ -26,6 +26,7 @@ import { Meal } from './meal.model';
 export class MealListComponent {
   @Input() childMealList: Meal[];
   @Output() deleteMealSender = new EventEmitter();
+  @Output() editMealSender = new EventEmitter();
 
 
   filterByCalories: string = "allMeals";
@@ -36,6 +37,10 @@ export class MealListComponent {
 
   deleteMeal($event) {
     this.deleteMealSender.emit($event);
+  }
+  
+  editMeal($event) {
+    this.editMealSender.emit($event);
   }
 
 

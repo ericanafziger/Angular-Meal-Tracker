@@ -15,7 +15,7 @@ import { Meal } from './meal.model';
       </div>
     </div>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
-    <meal-list (deleteMealSender)="deleteMeal($event)" [childMealList]="masterMealList"></meal-list>
+    <meal-list (editMealSender)="editMeal($event)" (deleteMealSender)="deleteMeal($event)" [childMealList]="masterMealList"></meal-list>
   </div>
   `
 })
@@ -36,6 +36,10 @@ export class AppComponent {
 
   deleteMeal($event) {
     this.masterMealList.splice(this.masterMealList.indexOf($event.meal), 1);
+    this.currentCalories = this.countCalories();
+  }
+
+  editMeal($event) {
     this.currentCalories = this.countCalories();
   }
 
