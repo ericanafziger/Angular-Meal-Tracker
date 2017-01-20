@@ -48,9 +48,19 @@ button {
     background: lighten($dark-text, 8%);
   }
 }
+.container {
+  margin-top: 5%;
+}
 
-//================Modular Styles====================//
+//================Root Component Styles====================//
 
+#tracker {
+  background: grey;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 7px 1px grey;
+}
 .calorieTracker {
   transition: all ease-in-out 200ms;
   position: relative;
@@ -60,28 +70,30 @@ button {
   border: 2px solid lightgrey;
   box-shadow: inset 0px 2px 7px 1px grey;
   border-radius: 25px;
+  z-index: 4;
   &::before {
-    border-radius: inherit;
+    border-radius: 23px;
     position: absolute;
     content: '';
-    height: 58px;
+    height: 56px;
     width: 100%;
-    background: #f2f1f1;
-    z-index: -2;
+    background: rgba(235, 235, 235, 0.5);
+    z-index: 0;
   }
   h4 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    z-index: 5;
   }
   .calorieMeter {
     transition: width ease-in-out 200ms;
     position: absolute;
-    z-index: -1;
+    z-index: 2;
     max-width: 100%;
-    border-radius: inherit;
-    height: 58px;
+    border-radius: 23px;
+    height: 56px;
     background:
       /* On "top" */
       repeating-linear-gradient(
@@ -98,4 +110,10 @@ button {
         #999
       );
   }
+}
+
+//================Meal List Component Styles====================//
+
+.sortMenu {
+  text-align: center;
 }

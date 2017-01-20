@@ -5,13 +5,15 @@ import { Meal } from './meal.model';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h5>My Daily Calorie Goal</h5>
-    <h3>{{dailyCalories}}</h3>
-    <div class="calorieTracker">
-      <div class="calorieMeter" [style.width.%]="(currentCalories/dailyCalories)*100"></div>
-      <h4>{{dailyCalories-currentCalories}} Remaining Today</h4>
-    </div>
     <h1>My Meal Tracker</h1>
+    <div id="tracker">
+      <h5>My Daily Calorie Goal</h5>
+      <h3>{{dailyCalories}}</h3>
+      <div class="calorieTracker">
+        <div class="calorieMeter" [style.width.%]="(currentCalories/dailyCalories)*100"></div>
+        <h4>{{dailyCalories-currentCalories}} Remaining Today</h4>
+      </div>
+    </div>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
     <meal-list (deleteMealSender)="deleteMeal($event)" [childMealList]="masterMealList"></meal-list>
   </div>
