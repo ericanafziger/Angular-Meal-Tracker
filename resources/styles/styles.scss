@@ -8,10 +8,11 @@
   box-shadow: inset 0px 2px 7px 1px grey;
   border-radius: 20px;
   .calorieMeter {
+    transition: width ease-in-out 200ms;
     position: absolute;
     z-index: -1;
-    border-radius: 20px 5px 5px 20px;
-    width: 80%;
+    max-width: 100%;
+    border-radius: 20px;
     height: 58px;
     background:
       /* On "top" */

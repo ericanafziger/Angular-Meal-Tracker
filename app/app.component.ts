@@ -32,6 +32,7 @@ export class AppComponent {
 
   deleteMeal($event) {
     this.masterMealList.splice(this.masterMealList.indexOf($event.meal), 1);
+    this.currentCalories = this.countCalories();
   }
 
   countCalories() {

@@ -35,7 +35,6 @@ export class NewMealComponent {
     this.newMealForm = true;
   }
   saveNewMeal(name:string, details:string, calories:string) {
-    debugger;
     var newMealToAdd: Meal = new Meal(name, details, parseInt(calories));
     this.newMealSender.emit(newMealToAdd);
     this.newMealForm = false;
