@@ -14,13 +14,13 @@ import { Meal } from './meal.model';
       <label>Food name</label>
       <input #name>
       <br>
-      <label>Description</label>
-      <input #description>
+      <label>Meal Details</label>
+      <input #details>
       <br>
       <label>Calories</label>
       <input #calories>
     </form>
-    <button (click)="saveNewMeal(name.value, description.value, calories.value); name.value=''; description.value=''; calories.value=''">Save</button>
+    <button (click)="saveNewMeal(name.value, details.value, calories.value); name.value=''; description.value=''; calories.value=''">Save</button>
     <button (click)="cancelNewMeal()">Cancel</button>
   </div>
   `
@@ -34,8 +34,8 @@ export class NewMealComponent {
   newMealFormShow() {
     this.newMealForm = true;
   }
-  saveNewMeal(name: string, description: string, calories: number) {
-    var newMealToAdd: Meal = new Meal(name, description, calories);
+  saveNewMeal(name: string, details: string, calories: number) {
+    var newMealToAdd: Meal = new Meal(name, details, calories);
     this.newMealSender.emit(newMealToAdd);
     this.newMealForm = false;
   }
