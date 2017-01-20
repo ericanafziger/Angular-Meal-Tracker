@@ -1,0 +1,32 @@
+.calorieTracker {
+  transition: all ease-in-out 200ms;
+  position: relative;
+  width: 60%;
+  height: 60px;
+  margin: 20px auto;
+  border: 2px solid lightgrey;
+  box-shadow: inset 0px 2px 7px 1px grey;
+  border-radius: 20px;
+  .calorieMeter {
+    position: absolute;
+    z-index: -1;
+    border-radius: 20px 5px 5px 20px;
+    width: 80%;
+    height: 58px;
+    background:
+      /* On "top" */
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        #ccc 10px,
+        #ccc 20px
+      ),
+      /* on "bottom" */
+      linear-gradient(
+        to bottom,
+        #eee,
+        #999
+      );
+  }
+}

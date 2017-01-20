@@ -18,7 +18,7 @@ import { Meal } from './meal.model';
       <input #details>
       <br>
       <label>Calories</label>
-      <input #calories>
+      <input #calories type=number>
     </form>
     <button (click)="saveNewMeal(name.value, details.value, calories.value)">Save</button>
     <button (click)="cancelNewMeal()">Cancel</button>
@@ -34,8 +34,9 @@ export class NewMealComponent {
   newMealFormShow() {
     this.newMealForm = true;
   }
-  saveNewMeal(name: string, details: string, calories: number) {
-    var newMealToAdd: Meal = new Meal(name, details, calories);
+  saveNewMeal(name:string, details:string, calories:string) {
+    debugger;
+    var newMealToAdd: Meal = new Meal(name, details, parseInt(calories));
     this.newMealSender.emit(newMealToAdd);
     this.newMealForm = false;
   }
