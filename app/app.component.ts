@@ -7,7 +7,7 @@ import { Meal } from './meal.model';
   <div class="container">
     <h1>Meal Tracker App</h1>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
-    <meal-list [childMealList]="masterMealList"></meal-list>
+    <meal-list (deleteMealSender)="deleteMeal($event)" [childMealList]="masterMealList"></meal-list>
   </div>
   `
 })
@@ -22,7 +22,11 @@ export class AppComponent {
   ];
 
   addMeal(newMealFromChild: Meal) {
-    this.masterMealList.push(newMealFromChild);
+    this.masterMealList.unshift(newMealFromChild);
+  }
+
+  deleteMeal($event) {
+    this.masterMealList.splice(this.masterMealList.indexOf($event.meal), 1);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Meal } from './meal.model';
 
 
@@ -15,18 +15,24 @@ import { Meal } from './meal.model';
     <p>{{currentMeal.name}}</p>
     <p>{{currentMeal.details}}</p>
     <p>{{currentMeal.calories}}</p>
-    <edit-meal [childSelectedMeal]="currentMeal"></edit-meal>
+    <edit-meal (deleteMealSender)="deleteMeal($event)" [childSelectedMeal]="currentMeal"></edit-meal>
   </div>
   `
 })
 
 export class MealListComponent {
   @Input() childMealList: Meal[];
+  @Output() deleteMealSender = new EventEmitter();
+
 
   filterByCalories: string = "lowCalories";
 
   onChange(optionFromMenu) {
     this.filterByCalories = optionFromMenu;
+  }
+
+  deleteMeal($event) {
+    this.deleteMealSender.emit($event);
   }
 
 

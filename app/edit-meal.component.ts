@@ -16,6 +16,7 @@ import { Meal } from './meal.model';
 
     <button (click)="cancelEdit()">Cancel</button>
     <button (click)="saveEditClicked()">Save</button>
+    <delete-meal [childSelectedMeal]="childSelectedMeal" (deleteMealSender)="deleteMeal($event)"></delete-meal>
   </div>
   <button *ngIf="showForm === false" (click)="showEditMealForm()">Edit</button>
 
@@ -24,6 +25,7 @@ import { Meal } from './meal.model';
 
 export class EditMealComponent {
   @Input() childSelectedMeal: Meal;
+  @Output() deleteMealSender = new EventEmitter();
 
   showForm : boolean = false;
 
@@ -37,6 +39,10 @@ export class EditMealComponent {
 
   saveEditClicked() {
     this.showForm = false;
+  }
+
+  deleteMeal($event) {
+    this.deleteMealSender.emit($event);
   }
 
 }
