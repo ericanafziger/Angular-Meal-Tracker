@@ -20,7 +20,7 @@ import { Meal } from './meal.model';
       <label>Calories</label>
       <input #calories>
     </form>
-    <button (click)="saveNewMeal(name.value, details.value, calories.value); name.value=''; description.value=''; calories.value=''">Save</button>
+    <button (click)="saveNewMeal(name.value, details.value, calories.value)">Save</button>
     <button (click)="cancelNewMeal()">Cancel</button>
   </div>
   `

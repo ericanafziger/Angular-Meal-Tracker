@@ -6,9 +6,9 @@ import { Meal } from './meal.model';
   selector: 'meal-list',
   template: `
   <select (change)="onChange($event.target.value)">
-    <option value="allMeals">All Meals</option>
+    <option value="allMeals" selected="selected">All Meals</option>
     <option value="highCalories">Meals over 500 Calories</option>
-    <option value="lowCalories" selected="selected">Meals under 500 Calories</option>
+    <option value="lowCalories">Meals under 500 Calories</option>
   </select>
   <h4>Meal List</h4>
   <div class="module" *ngFor="let currentMeal of childMealList | calories:filterByCalories">
@@ -25,7 +25,7 @@ export class MealListComponent {
   @Output() deleteMealSender = new EventEmitter();
 
 
-  filterByCalories: string = "lowCalories";
+  filterByCalories: string = "allMeals";
 
   onChange(optionFromMenu) {
     this.filterByCalories = optionFromMenu;
