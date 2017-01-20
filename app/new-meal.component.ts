@@ -5,10 +5,10 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'new-meal',
   template: `
-  <div *ngIf="newMealForm === false">
+  <div class="newMealButton" *ngIf="newMealForm === false">
     <button (click)="newMealFormShow()">Record Meal</button>
   </div>
-  <div *ngIf="newMealForm">
+  <div class="newMealForm" *ngIf="newMealForm">
     <h3>New Meal</h3>
     <form>
       <label>Food name</label>
@@ -20,8 +20,10 @@ import { Meal } from './meal.model';
       <label>Calories</label>
       <input #calories type=number>
     </form>
-    <button (click)="saveNewMeal(name.value, details.value, calories.value)">Save</button>
-    <button (click)="cancelNewMeal()">Cancel</button>
+    <div class="buttons">
+      <button (click)="saveNewMeal(name.value, details.value, calories.value)">Save</button>
+      <button (click)="cancelNewMeal()">Cancel</button>
+    </div>
   </div>
   `
 })
