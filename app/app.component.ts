@@ -7,14 +7,16 @@ import { Meal } from './meal.model';
   <div class="container">
     <h1>My Meal Tracker</h1>
     <div id="tracker">
-      <h5>My Daily Calorie Goal</h5>
-      <h3>{{dailyCalories}}</h3>
+      <h5>My Daily Calorie Goal:</h5>
+      <h6>(Click on calories below to edit. Press <samp>shift</samp> to save.)</h6>
+      <h3 id="calories" (keydown.shift)="updateCalories()" contenteditable="true">{{dailyCalories}}</h3>
       <div class="calorieTracker">
         <div class="calorieMeter" [style.width.%]="(currentCalories/dailyCalories)*100"></div>
         <h4>{{dailyCalories-currentCalories}} Remaining Today</h4>
       </div>
     </div>
     <new-meal (newMealSender)="addMeal($event)"></new-meal>
+    <!--<button (click)="updateCalories()">Update Daily Calories</button>-->
     <meal-list (editMealSender)="editMeal($event)" (deleteMealSender)="deleteMeal($event)" [childMealList]="masterMealList"></meal-list>
   </div>
   `
@@ -50,6 +52,13 @@ export class AppComponent {
     });
     return calories;
   }
+
+  updateCalories() {
+    var newValue : number = parseInt(document.getElementById("calories").innerHTML);
+    console.log(newValue);
+    this.dailyCalories = newValue;
+  }
+
   dailyCalories: number = 2000;
   currentCalories: number = this.countCalories();
 

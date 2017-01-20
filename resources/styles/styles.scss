@@ -60,6 +60,13 @@ button {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 2px 7px 1px grey;
+  #calories {
+    width: 50%;
+    margin: auto;
+  }
+  h6 {
+    text-align: center;
+  }
 }
 .calorieTracker {
   transition: all ease-in-out 200ms;
@@ -68,7 +75,7 @@ button {
   height: 60px;
   margin: 20px auto;
   border: 2px solid lightgrey;
-  box-shadow: inset 0px 2px 7px 1px grey;
+  box-shadow: inset 0px 2px 7px 1px rgba(0,0,0,.3);
   border-radius: 25px;
   z-index: 4;
   &::before {
@@ -77,7 +84,7 @@ button {
     content: '';
     height: 56px;
     width: 100%;
-    background: rgba(235, 235, 235, 0.5);
+    background: rgba(235, 235, 235, 0.3);
     z-index: 0;
   }
   h4 {
