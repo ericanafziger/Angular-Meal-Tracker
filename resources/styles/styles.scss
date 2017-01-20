@@ -7,21 +7,36 @@
   border: 2px solid lightgrey;
   box-shadow: inset 0px 2px 7px 1px grey;
   border-radius: 20px;
+  &::before {
+    border-radius: inherit;
+    position: absolute;
+    content: '';
+    height: 58px;
+    width: 100%;
+    background: #e7e7e7;
+    z-index: -2;
+  }
+  h3 {
+    position: absolute;
+    color: rgb(56, 56, 56);
+    padding: 0 20px;
+    font-size: 1.2em;
+  }
   .calorieMeter {
     transition: width ease-in-out 200ms;
     position: absolute;
     z-index: -1;
     max-width: 100%;
-    border-radius: 20px;
+    border-radius: inherit;
     height: 58px;
     background:
       /* On "top" */
       repeating-linear-gradient(
         45deg,
         transparent,
-        transparent 10px,
-        #ccc 10px,
-        #ccc 20px
+        transparent 8px,
+        #ccc 8px,
+        #ccc 16px
       ),
       /* on "bottom" */
       linear-gradient(
