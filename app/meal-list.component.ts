@@ -13,12 +13,16 @@ import { Meal } from './meal.model';
       <option value="lowCalories">Meals under 500 Calories</option>
     </select>
   </div>
-  <h4>Meal List</h4>
-  <div class="module" *ngFor="let currentMeal of childMealList | calories:filterByCalories">
-    <p>{{currentMeal.name}}</p>
-    <p>{{currentMeal.details}}</p>
-    <p>{{currentMeal.calories}}</p>
-    <edit-meal (editMealSender)="editMeal($event)" (deleteMealSender)="deleteMeal($event)" [childSelectedMeal]="currentMeal"></edit-meal>
+  <hr>
+  <h3>Meal List</h3>
+  <div class="moduleContainer">
+    <div class="module" *ngFor="let currentMeal of childMealList | calories:filterByCalories">
+      <h4>{{currentMeal.name}}</h4>
+      <hr>
+      <p>{{currentMeal.details}}</p>
+      <h5>{{currentMeal.calories}} Calories</h5>
+      <edit-meal (editMealSender)="editMeal($event)" (deleteMealSender)="deleteMeal($event)" [childSelectedMeal]="currentMeal"></edit-meal>
+    </div>
   </div>
   `
 })
@@ -38,7 +42,7 @@ export class MealListComponent {
   deleteMeal($event) {
     this.deleteMealSender.emit($event);
   }
-  
+
   editMeal($event) {
     this.editMealSender.emit($event);
   }

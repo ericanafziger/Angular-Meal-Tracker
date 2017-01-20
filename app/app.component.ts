@@ -27,8 +27,9 @@ export class AppComponent {
   masterMealList: Meal[] = [
     new Meal("Pizza", "2 slices of combination pizza from Costco", 400),
     new Meal("Salad", "Homemade cobb salad", 220),
-    new Meal("Hamburger", "Hamburger with gluten free bun", 500),
-    new Meal("Fettuccine Alfredo with Shrimp", "Ate entire bowl from Olive Garden", 600)
+    new Meal("Hamburger", "Hamburger with gluten free bun", 300),
+    new Meal("Fettuccine Alfredo with Shrimp", "Ate entire bowl from Olive Garden", 830),
+    new Meal("Yogurt", "Bowl of yogurt with blueberries and coconut flakes", 100),
   ];
 
   addMeal(newMealFromChild: Meal) {
