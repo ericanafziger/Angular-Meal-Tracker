@@ -3,7 +3,7 @@
 ## By Erica Nafziger
 
 #Description
-This app allows users to track meals based on specified calorie diet. Users can edit, add and delete meals from their meal tracker, with a visual representation of how many calories they have left for the day. 
+This app allows users to track meals based on specified calorie diet. Users can edit, add and delete meals from their meal tracker, with a visual representation of how many calories they have left for the day.
 
 ## Prerequisites
 
@@ -20,15 +20,6 @@ You will need the following things properly installed on your computer.
 * `npm install`
 * `bower install`
 
-## Installation
-Technologies Used:
-* Angular 2
-* Typescript
-* Sass
-* Node
-* Bower
-
-
 ## Running / Development
 
 * `gulp serve`
@@ -38,6 +29,13 @@ Technologies Used:
 
 * `gulp build` (development)
 * `gulp build --production` (production)
+
+## Technologies Used:
+* Angular 2
+* Typescript
+* Sass
+* Node
+* Bower
 
 ## Supprt and contact details
 

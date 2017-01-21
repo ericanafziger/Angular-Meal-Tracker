@@ -8,7 +8,7 @@ import { Meal } from './meal.model';
     <h1>My Meal Tracker</h1>
     <div id="tracker">
       <h5>My Daily Calorie Goal:</h5>
-      <h6>(Click on calories below to edit)</h6>
+      <h6>(Click on calorie goal below to edit)</h6>
       <h3 id="calories" (keyup)="updateCalories()" contenteditable="true">{{dailyCalories}}</h3>
       <div class="calorieTracker">
         <div class="calorieMeter" [style.width.%]="(currentCalories/dailyCalories)*100"></div>
