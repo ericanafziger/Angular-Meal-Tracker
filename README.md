@@ -2,7 +2,7 @@
 
 ## By Erica Nafziger
 
-#Description
+## Description
 This app allows users to track meals based on specified calorie diet. Users can edit, add and delete meals from their meal tracker, with a visual representation of how many calories they have left for the day.
 
 ## Prerequisites
